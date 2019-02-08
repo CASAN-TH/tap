@@ -48,9 +48,11 @@ export class HomeComponent implements OnInit {
 
       }
     } catch (error) {
+      this.spinner.hide();
       this.snackBar.open('บันทึกไม่สำเร็จ', 'โปรดลองใหม่', {
         duration: 2000,
       });
+
 
 
     }

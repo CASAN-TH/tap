@@ -27,7 +27,7 @@
         </div>
       
         <div>
-          <button mat-raised-button color="primary" class="input-width" (click)="saveData()">Save</button>
+          <button mat-raised-button color="primary" class="input-width" (click)="saveData()" [disabled]="!body.name || !body.userid || !body.stationgroup || !body.devicename">Save</button>
           
         </div>
       

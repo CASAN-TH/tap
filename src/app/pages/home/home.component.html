@@ -1,3 +1,39 @@
-<div class="content">
-  
+<div class="row">
+
+    <div class="content col-12 text-center">
+        <div>
+          <mat-form-field class="example-full-width pt-3 input-width">
+              <input matInput placeholder="Name" [(ngModel)]="body.name">
+            </mat-form-field>
+      
+        </div>
+      
+        <div>
+          <mat-form-field class="example-full-width pt-3 input-width">
+              <input matInput placeholder="User ID" [(ngModel)]="body.userid">
+            </mat-form-field>
+        </div>
+      
+        <div>
+          <mat-form-field class="example-full-width pt-3 input-width">
+              <input matInput placeholder="Station Group" [(ngModel)]="body.stationgroup">
+            </mat-form-field>
+        </div>
+      
+        <div>
+          <mat-form-field class="example-full-width pt-3 input-width">
+              <input matInput placeholder="Device Name" [(ngModel)]="body.devicename">
+            </mat-form-field>
+        </div>
+      
+        <div>
+          <button mat-raised-button color="primary" class="input-width" (click)="saveData()">Save</button>
+          
+        </div>
+      
+      </div>
+      
+      
+      
+      
 </div>

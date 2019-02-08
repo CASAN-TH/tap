@@ -15,6 +15,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { HeaderToolbarComponent } from "./components/header-toolbar/header-toolbar.component";
 import { environment } from "src/environments/environment";
 import { AuthModule } from "ng6-md-auth";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 const apiSrvCfg = environment;
@@ -36,10 +38,11 @@ const apiSrvCfg = environment;
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: "never" }),
     HttpClientModule,
     NgxSpinnerModule,
-    
+    MatSnackBarModule,
+
     AuthModule.forRoot(apiSrvCfg)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -11,6 +11,6 @@ export class TapserviceService {
   ) { }
 
   saveData(body) {
-    return this.http.post('http://pamasmell.herokuapp.com/api/users',body).toPromise();
+    return this.http.post('https://pamasmell.herokuapp.com/api/users',body).toPromise();
   }
 }

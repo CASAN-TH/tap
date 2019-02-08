@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { TapserviceService } from "src/app/services/tapservice.service";
+import { MatSnackBar } from "@angular/material";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-home",
@@ -18,7 +20,9 @@ export class HomeComponent implements OnInit {
   data: any;
 
   constructor(
-    private service: TapserviceService
+    private service: TapserviceService,
+    private snackBar: MatSnackBar,
+    private spinner: NgxSpinnerService
   ) {
 
   }
@@ -26,9 +30,31 @@ export class HomeComponent implements OnInit {
   ngOnInit() { }
 
   async saveData() {
+    this.spinner.show();
+    try {
+      this.data = await this.service.saveData(this.body)
+      this.spinner.hide();
+      this.body = {
+        name: '',
+        userid: '',
+        stationgroup: '',
+        devicename: ''
+      };
+      console.log(this.data)
+      if (this.data.status === 200) {
+          this.snackBar.open('บันทึกสำเร็จ', '', {
+            duration: 2000,
+          });
 
-    this.data = await this.service.saveData(this.body)
-    console.log(this.data)
+      }
+    } catch (error) {
+      this.snackBar.open('บันทึกไม่สำเร็จ', 'โปรดลองใหม่', {
+        duration: 2000,
+      });
+
+
+    }
+
 
   }
 }
